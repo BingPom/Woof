@@ -29,7 +29,7 @@ val AbrilFatFace = FontFamily(
 )
 
 val Montserrat = FontFamily(
-    Font(R.font.abril_fatface_regular),
+    Font(R.font.montserrat_regular),
     Font(R.font.montserrat_bold, FontWeight.Bold)
 )
 
