@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             WoofTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -119,16 +120,20 @@ fun DogItem(
     var expanded by remember { mutableStateOf(false) }
     val color by animateColorAsState(
         targetValue = if (expanded) MaterialTheme.colorScheme.tertiaryContainer
-        else MaterialTheme.colorScheme.primaryContainer,
+        else MaterialTheme.colorScheme.secondaryContainer,
         label = "",
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioHighBouncy,
+            stiffness = Spring.StiffnessVeryLow
+        )
     )
     Card(modifier = modifier) {
         Column(
             modifier = Modifier
                 .animateContentSize(
                     animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessMedium
+                        dampingRatio = Spring.DampingRatioHighBouncy,
+                        stiffness = Spring.StiffnessVeryLow
                     )
                 )
                 .background(color = color)
